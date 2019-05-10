@@ -59,14 +59,15 @@ const NSInteger UncaughtExceptionHandlerReportAddressCount = 5;
 
 - (void)validateAndSaveCriticalApplicationData:(NSException *)exception
 {
-    YQAppLog *applog=[YQAppLog new];
-    applog.class_name=@"";
-    applog.component_tag=[exception reason];
-    applog.action=@"ACTION_CRASH_LOG";
-    applog.view_path=[NSString stringWithFormat:NSLocalizedString(
-                                                                  @"%@", nil),
-                      [[exception userInfo] objectForKey:UncaughtExceptionHandlerAddressesKey]];
-    [YQDoctorAnalytics trackEvent: applog];
+    //上传服务端代码，根据自己需求来改
+//    YQAppLog *applog=[YQAppLog new];
+//    applog.class_name=@"";
+//    applog.component_tag=[exception reason];
+//    applog.action=@"ACTION_CRASH_LOG";
+//    applog.view_path=[NSString stringWithFormat:NSLocalizedString(
+//                                                                  @"%@", nil),
+//                      [[exception userInfo] objectForKey:UncaughtExceptionHandlerAddressesKey]];
+//    [YQDoctorAnalytics trackEvent: applog];
 }
 
 - (void)handleException:(NSException *)exception
