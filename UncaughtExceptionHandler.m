@@ -73,7 +73,7 @@ const NSInteger UncaughtExceptionHandlerReportAddressCount = 5;
 - (void)handleException:(NSException *)exception
 {
 	[self validateAndSaveCriticalApplicationData:exception];
-	
+	#if DEBUG
 	UIAlertView *alert =
 		[[UIAlertView alloc]
 			initWithTitle:NSLocalizedString(@"Unhandled exception", nil)
@@ -86,7 +86,7 @@ const NSInteger UncaughtExceptionHandlerReportAddressCount = 5;
 			cancelButtonTitle:NSLocalizedString(@"Quit", nil)
 			otherButtonTitles:NSLocalizedString(@"Continue", nil), nil];
 	[alert show];
-	
+	#endif
 	CFRunLoopRef runLoop = CFRunLoopGetCurrent();
 	CFArrayRef allModes = CFRunLoopCopyAllModes(runLoop);
 	
